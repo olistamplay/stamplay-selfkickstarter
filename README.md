@@ -13,7 +13,7 @@ Feel free to implement more cool features (see the last paragraph for ideas), co
 -----------------------
 ## KickStarter
 
-This is a demo of what you can achieve with Stamplay,it's somewhat a clone of [kickStarter](http://kickstarter.com) and here you can see it up and running [https://kickstarter.stamplay.com](https://kickstarter.stamplay.com)
+This is a demo of what you can achieve with Stamplay,it's somewhat a clone of [kickStarter](http://kickstarter.com) and here you can see it up and running [https://kickstarter.stamplayapp.com](https://kickstarter.stamplayapp.com)
 
 We love javascript and front end framework and this time we show you how you can create this app using [AngularJS](http://angularjs.org) to implement the client side logic. Here are the user stories for this example:
 
