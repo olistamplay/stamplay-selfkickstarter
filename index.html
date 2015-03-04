@@ -1,3 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Stamplay-Starter</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="./css/agency.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index" ng-app="app">
+
+    <!-- Header -->
+    
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -100,7 +139,7 @@
                         </span>
                         <h4 class="service-heading rewards"> Supporter </h4>
                         <p class="description-reward">Get 2 free starter plan month worth 38$ with all the essential features to start building your first app</p>
-                        <stamplay stripe-customer-payment data-key="" data-amount="500" data-currency="USD" data-template-url="5dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData5"></stamplay>
+                        <stamplay stripe-customer-payment data-key="pk_test_pJmA0kOREkC3HnHyozSst2r0" data-amount="500" data-currency="USD" data-template-url="5dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData5"></stamplay>
                     </div>
                 </div>
                 <div class="col-md-3 " >
@@ -111,7 +150,7 @@
                         </span>
                         <h4 class="service-heading rewards"> Lover</h4>
                         <p class="description-reward">Get 2 free plus plan month worth 90$ to kick-off your next great app with almost no limit</p>
-                        <stamplay stripe-customer-payment data-key="" data-amount="1500" data-currency="USD" data-template-url="15dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData15"></stamplay>
+                        <stamplay stripe-customer-payment data-key="pk_test_pJmA0kOREkC3HnHyozSst2r0" data-amount="1500" data-currency="USD" data-template-url="15dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData15"></stamplay>
                         </div>
                 </div>
                 <div class="col-md-3 " >
@@ -122,7 +161,7 @@
                         </span>
                         <h4 class="service-heading rewards" > Fan</h4>
                         <p class="description-reward">Get 6 free plus plan month worth 270$ to bootstrap something that wants to last</p>
-                        <stamplay stripe-customer-payment data-key="" data-amount="3000" data-currency="USD" data-template-url="30dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData30"></stamplay>
+                        <stamplay stripe-customer-payment data-key="pk_test_pJmA0kOREkC3HnHyozSst2r0" data-amount="3000" data-currency="USD" data-template-url="30dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData30"></stamplay>
 
                     </div>
                 </div>
@@ -134,7 +173,7 @@
                         </span>
                         <h4 class="service-heading rewards"> Fanatic </h4>
                         <p class="description-reward"> We'll just love you giving back 12 free plus plan month!</p>
-                        <stamplay stripe-customer-payment data-key="" data-amount="5000" data-currency="USD" data-template-url="50dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData50"></stamplay>
+                        <stamplay stripe-customer-payment data-key="pk_test_pJmA0kOREkC3HnHyozSst2r0" data-amount="5000" data-currency="USD" data-template-url="50dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData50"></stamplay>
                     </div>
                 </div>
             </div>
@@ -156,7 +195,7 @@
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{{assetsUrl}}/assets/1.jpg" alt="">
+                                <img class="img-circle img-responsive" src="./images/1.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -170,7 +209,7 @@
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="{{assetsUrl}}/assets/2.jpg" alt="">
+                                <img class="img-circle img-responsive" src="./images/2.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -274,3 +313,49 @@
             </div>
         </div>
     </section>
+
+   
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright text-primary">Copyright &copy; Stamplay 2015</span>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline social-buttons">
+                        <li><a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li><a href="#">Support Stamplay, because we <i class="fa fa-heart"></i> you</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+      <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+   <script>
+      var _APP_ID = "kickstarter";
+      var _ASSETS_URL = "."
+    </script>
+    <script src="./js/stamplay-ng.min.js"></script> 
+    <script src="./js/jquery-1.9.1.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="./js/classie.js"></script>
+    <script src="./js/cbpAnimatedHeader.js"></script>
+    <script src="./js/agency.js"></script>
+    <script src="./js/project-data.js"></script>
+
+  </body>
+</html>

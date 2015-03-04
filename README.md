@@ -13,7 +13,7 @@ Feel free to implement more cool features (see the last paragraph for ideas), co
 -----------------------
 ## KickStarter
 
-This is a demo of what you can achieve with Stamplay,it's somewhat a clone of [kickStarter](http://kickstarter.com) and here you can see it up and running [https://241592.stamplay.com](https://241592.stamplay.com)
+This is a demo of what you can achieve with Stamplay,it's somewhat a clone of [kickStarter](http://kickstarter.com) and here you can see it up and running [https://kickstarter.stamplay.com](https://kickstarter.stamplay.com)
 
 We love javascript and front end framework and this time we show you how you can create this app using [AngularJS](http://angularjs.org) to implement the client side logic. Here are the user stories for this example:
 
@@ -71,8 +71,8 @@ Let's define the entities for this app, we will define **Backer** and **Fund** t
 
 After setting up this Stamplay will instantly expose Restful APIs for our newly resources the following URIs: 
 
-* `https://APPID.stamplay.com/api/cobject/v0/backer`
-* `https://APPID.stamplay.com/api/cobject/v0/fund`
+* `https://APPID.stamplayapp.com/api/cobject/v0/backer`
+* `https://APPID.stamplayapp.com/api/cobject/v0/fund`
 
 ### Stripe
 
@@ -173,10 +173,17 @@ Or download it as a zip file
 	
 	https://github.com/Stamplay/stamplay-selfkickstarter/archive/master.zip 
 
-Then you need to upload the frontend files in your app and you can do it in two ways:
+Then you need to upload the frontend files in your app by using the [CLI tool](https://github.com/Stamplay/stamplay-cli):
 
-* Copy/Upload them via the Layout section of your app on Stamplay editor
-* Download and run **Stamplay Sync**, make it download the frontend assets of your app and then replace them with the ones you got from this repo. Stamplay Sync will upload everything for you on your app.
+```js
+cd your/path/to/stamplay-selfkickstarter
+stamplay init
+/*
+ * You will need to insert your appId and your API key
+ */
+stamplay deploy
+```
+
 
 
 -----------------------
@@ -186,6 +193,8 @@ Here are a few ideas for further improvement :
 
 * Add social login like Google or Twitter to enrich user's identity
 * Add possibility to comment your project form logged User
+* Add grunt or gulp task to minify all assets
+* Add custom 404 page
 * _Your idea here… ?_
 
 Again, for any questions drop an email to [giuliano.iacobelli@stamplay.com](mailto:giuliano.iacobelli@stamplay.com) :)

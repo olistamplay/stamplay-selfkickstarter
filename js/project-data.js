@@ -25,10 +25,10 @@ app.directive('projectData', [ function () {
 			    })
 			  
 			  /* INSERT HERE THE OBJECTID OF YOUR FOUND OBJ */
-			  var fundObjectId = "";
+			  var foundObjectId = "54f6d299834bc34251000207";
 
 
-			  $http({method:'GET', url:'/api/cobject/v0/fund/'+fundObjectId})
+			  $http({method:'GET', url:'/api/cobject/v0/found/'+foundObjectId})
 			    .success(function(data, status){
 			    	$scope.money = data.money
 			    })
@@ -38,7 +38,7 @@ app.directive('projectData', [ function () {
 
 			  var update = function(data){ 
 
-			  	return $http({method:'PUT', data: data, url: '/api/cobject/v0/fund/'+fundObjectId})
+			  	return $http({method:'PUT', data: data, url: '/api/cobject/v0/found/'+foundObjectId})
 			  }
 
 			  var incrementBackerAndMoney = function($scope,money){
@@ -54,9 +54,6 @@ app.directive('projectData', [ function () {
 			  })
 			  $rootScope.$on('refreshData30', function(){
 			  	incrementBackerAndMoney($scope, 30)
-			  })
-			  $rootScope.$on('refreshData50', function(){
-			  	incrementBackerAndMoney($scope, 50)
 			  })
 
 			}
