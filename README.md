@@ -1,7 +1,7 @@
 # stamplay-selfkickstarter
 ========================
 
-![selfkickstarter](http://blog.stamplay.com/wp-content/uploads/2014/12/Screenshot-2014-11-27-10.52.53.png)
+![selfkickstarter](https://blog.stamplay.com/wp-content/uploads/2014/12/Screenshot-2014-11-27-10.52.53.png)
 
 **This project is built on the [Stamplay](https://stamplay.com) platform and [AngularJS](http://angularjs.org) to show how to build a  landing page to raise funds leveraging Stripe integration,
 let's say something similar to [KickStarter](http://kickstarter.com) but done in the blink of an eye.**
@@ -31,16 +31,16 @@ Best of all, we used AngularJS :) Prepare to be amazed.
 
 self-KickStarter is built around the following building blocks
 
-* [User](http://stamplay.readme.io/v0/docs/user-component)
-* [Custom Objects](http://stamplay.readme.io/v0/docs/working-with-custom-object)
-* [Stripe](http://stamplay.readme.io/v0/docs/description)
-* [Form](http://stamplay.readme.io/v0/docs/working-with-form)
-* [Email](http://stamplay.readme.io/v0/docs/working-with-email)
+* [User](https://stamplay.com/docs/rest-api#user)
+* [Custom Objects](https://stamplay.com/docs/rest-api#custom-object-api)
+* [Stripe](https://stamplay.com/docs/rest-api#stripe)
+* Form
+* [Email](https://stamplay.com/docs/rest-api#email-api)
 
 
 ## Requirements
 
-Go to [your account](http://editor.stamplay.com/apps) and create a new app.
+Go to [your account](https://editor.stamplay.com/apps) and create a new app.
 
 
 ## Configuring the components
@@ -50,11 +50,11 @@ After creating a new app on [Stamplay](https://editor.stamplay.com) let's start 
 Lets see one-by-one how they are configured:
 
 ### User
-the app leverages Facebook Login to provide an easy login to its users. In order to activate yours you need to get an APPID and APPSecret on [Facebook Developer's portal](http://developers.facebook.com/apps), create an app and add Stamplay.com as authorized domain as you can see in the pic below. 
+the app leverages Facebook Login to provide an easy login to its users. In order to activate yours you need to get an APPID and APPSecret on [Facebook Developer's portal](https://developers.facebook.com/apps), create an app and add Stamplay.com as authorized domain as you can see in the pic below. 
 
-![Facebook app settings](http://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-17.43.24.png "Facebook app settings")
+![Facebook app settings](https://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-17.43.24.png "Facebook app settings")
 
-now you have the data to configure Facebook Login on your app's user module. Go back on Stamplay, select the user component, add Facebook as signup service and then cut and paste the App ID and App Secret and click save.
+Now you have the data to configure Facebook Login on your app's user module. Go back on Stamplay, select the user component, add Facebook as signup service and then cut and paste the App ID and App Secret and click save.
 
 
 ### Custom Object
@@ -167,7 +167,7 @@ It is also possible add an attribute call data-error-event on all stripe angular
 
 First, clone this repository :
 
-    git clone git@github.com:Stamplay/stamplay-selfkickstarter
+    git clone https://github.com/Stamplay/stamplay-selfkickstarter.git
     
 Or download it as a zip file
 	
