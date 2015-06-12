@@ -28,7 +28,7 @@ app.directive('projectData', [ function () {
 			  var foundObjectId = "54f6d299834bc34251000207";
 
 
-			  $http({method:'GET', url:'/api/cobject/v0/found/'+foundObjectId})
+			  $http({method:'GET', url:'/api/cobject/v0/fund/'+foundObjectId})
 			    .success(function(data, status){
 			    	$scope.money = data.money
 			    })
@@ -38,7 +38,7 @@ app.directive('projectData', [ function () {
 
 			  var update = function(data){ 
 
-			  	return $http({method:'PUT', data: data, url: '/api/cobject/v0/found/'+foundObjectId})
+			  	return $http({method:'PUT', data: data, url: '/api/cobject/v0/fund/'+foundObjectId})
 			  }
 
 			  var incrementBackerAndMoney = function($scope,money){
