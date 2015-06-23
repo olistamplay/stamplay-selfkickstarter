@@ -19,9 +19,7 @@ We love javascript and front end framework and this time we show you how you can
 
 * Guest users can signup with Facebook
 * Logged users can donate a fixed amount for you project
-* Logged users can ask you any informations with the submit of a form
 * Admins can set a goal of the campaign 
-* Admins can be notified when a user is charged
 * Admins can see all payment details via Stripe dashboard
 
 Best of all, we used AngularJS :) Prepare to be amazed.
@@ -34,8 +32,6 @@ self-KickStarter is built around the following building blocks
 * [User](https://stamplay.com/docs/rest-api#user)
 * [Custom Objects](https://stamplay.com/docs/rest-api#custom-object-api)
 * [Stripe](https://stamplay.com/docs/rest-api#stripe)
-* Form
-* [Email](https://stamplay.com/docs/rest-api#email-api)
 
 
 ## Requirements
@@ -45,7 +41,7 @@ Go to [your account](https://editor.stamplay.com/apps) and create a new app.
 
 ## Configuring the components
 
-After creating a new app on [Stamplay](https://editor.stamplay.com) let's start by picking the component we want to use in our app that are: **User**,**Custom Objects**,**Stripe**, **Form** and  **Email**.
+After creating a new app on [Stamplay](https://editor.stamplay.com) let's start by picking the component we want to use in our app that are: **User**,**Custom Objects** and **Stripe**.
 
 Lets see one-by-one how they are configured:
 
@@ -71,23 +67,12 @@ Let's define the entities for this app, we will define **Backer** and **Fund** t
 
 After setting up this Stamplay will instantly expose Restful APIs for our newly resources the following URIs: 
 
-* `https://APPID.stamplayapp.com/api/cobject/v0/backer`
-* `https://APPID.stamplayapp.com/api/cobject/v0/fund`
+* `https://APPID.stamplayapp.com/api/cobject/v1/backer`
+* `https://APPID.stamplayapp.com/api/cobject/v1/fund`
 
 ### Stripe
 
 Connect your account simply by clicking on Connect button and choose between live or test mode.   
-
-### Form
-
-Form component is used to create a contact form in the kickStarter of our users will be able to write to the owner of the page. The form will have 3 fields:
-
-* Name: `email`, Type: `text`, The sender's email address
-* Name: `subject`, Type: `text`, The email's subject 
-* Name: `message`, Type: `text`, The message
-
-### Email
-This component doesn't need any setup, couldn't be easier than that ;)
 
 -----------------------
 
@@ -117,27 +102,9 @@ Action: Custom Object - Create
 
 	Cobject Schema: Backer
 
-	lastfour:  {{customer.card.last4}}
+	lastfour:  {{payment.card.last4}}
 
-	user: {{customer.userId}}
-
-### When a new form entry is submitted, notify the application owner with an email
-
-Trigger : Form - On submit
-
-Action: Email - Send Email
-
-**Form submit configuration**
-
-	Form: Contact
-
-**Send Email configuration**
-
-	to: info@mydomain.com 
-	from: {{entry.data.email}} 
-	from name: {{entry.data.email}} 
-	Subject: {{entry.data.email}}
-	Body: {{entry.data.message}}
+	user: {{user._id}}
 
 _______________________________
 
@@ -145,21 +112,7 @@ _______________________________
 
 Everytime you create reasource using Custom Object you can manage instances of the entities in the Admin section. This will let you to easily add edit.
 First of all create from Admin section an custom Object instance from fund model, this instance will need to represent the amount raise until now. 
-
------------------------
-
-## The frontend and AngularJS
-
-All the logic of the app is on the Stamplay widgets. Is too simple to understand. 
-We also added a single widgets for data management of the campaign, project-data.js, this angular directive handles the success or error callback during payment process.
-In this file is very important that you give a value to fundObjectId variable. Do you remember the instance of fund model that we have created one chapter before? Use the _id value of this instance for setting the fundObjectId variable
-
-After your Stripe account was connected copy the stripe key from editor and insert it into all stripe payment widgets on index.html. 
-**Example:**
-
-	<stamplay stripe-customer-payment data-key="[[YOUR STRIPE KEY]]" data-amount="5000" data-currency="USD" data-template-url="50dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData50">
-
-It is also possible add an attribute call data-error-event on all stripe angular widgets to hanlde the error callback on project-data.js or settings a different template url to change the modal layout.
+IMPORTANT: change the Stripe key on index.html 
 
 -----------------------
 
@@ -183,7 +136,6 @@ stamplay init
  */
 stamplay deploy
 ```
-
 
 
 -----------------------

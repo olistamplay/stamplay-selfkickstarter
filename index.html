@@ -10,15 +10,11 @@
     <meta name="author" content="">
 
     <title>Stamplay-Starter</title>
-
-    <!-- Bootstrap Core CSS -->
     <link href="./css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
     <link href="./css/agency.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">    
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
@@ -33,7 +29,7 @@
 
 </head>
 
-<body id="page-top" class="index" ng-app="app">
+<body id="page-top" class="index" ng-app="app" ng-controller="appCtrl">
 
     <!-- Header -->
     
@@ -48,22 +44,39 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                      <a href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#rewards">Rewards</a>
+                      <a class="page-scroll" href="#rewards">Rewards</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">About</a>
+                      <a class="page-scroll" href="#about">About</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#team">Team</a>
+                      <a class="page-scroll" href="#team">Team</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
-                    </li>
-                    <li>
-                        <stamplay user-navbadge style="padding-top: 15px;padding-bottom: 15px;line-height: 20px;position: relative;display: block;padding-left:15px;"></stamplay>
+
+                    <div style="padding-top: 15px;padding-bottom: 15px;line-height: 20px;position: relative;display: block;padding-left:15px;">
+                      <li class="dropdown user-nav-badge page-scroll" ng-show="user.dt_create">    
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                          {{user.displayName}}<b class="caret" style="border-top-color: #777;border-bottom-color: #777;"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                        <li  role="presentation">
+                          <a ng-click="logout()">
+                            Logout
+                            <span class="fa fa-sign-out pull-right">
+                          </a>
+                        </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a ng-click="fbLogin()" ng-hide="user.dt_create" href="#">
+                        <i class="fa fa-facebook"> Login</i></a>
+                      </li>
+                    </div>
+
                     </li>
                 </ul>
             </div>
@@ -84,18 +97,35 @@
                     </div>
                     <div class="col-md-4 text-left">
                         
-                        <stamplay project-data data-expire-date="25/12/2015" data-goal="20000" ng-cloak></stamplay>
+                        <div class="h1 bold" style="margin-top: 15px;">
+                            <data >{{backers}}</data>
+                        </div>
+                        <span class="bold h5">
+                            <data >backers</data>
+                        </span>
+                        <div class="h1 bold" style="margin-top: 15px;">
+                            <data>$ {{money}}</data>
+                        </div>
+                        <span class="bold h5">
+                            pledged, $12000 of goal
+                        </span>
+                        <div class="h1 bold" style="margin-top: 15px;" >
+                            <data id="data-left" data-expire-date="25/12/2016"> {{daysLeft}} </data>
+                        </div>
+                        <span class="bold h5">
+                            days to go
+                        </span>
             
                         <br />
-                        <stamplay login-facebook></stamplay>
+
+                         <a ng-click="fbLogin()" class="btn btn-xl" style="margin-top: 15px;" ng-hide="user.dt_create">Login/signup</a>
+                         
+                         <a class="page-scroll btn btn-xl" id="support-project" style="margin-top:15px;" href="#rewards" ng-show="user.dt_create">Back this Project</a>
+
                         <br />
                         <div class="h4 bold" style="margin-top: 15px;">
-                            <img src="https://stamplay.com/images/Giuliano.jpg" class="img-responsive img-circle" style="float:left" width="50"/>
-                            <span class="text-primary" style="line-height: 3;margin-left: 10px;">Giuliano Iacobelli</span>
-                        </div>
-                        <div style="margin-top: 15px;">
-                            <i class="fa fa-envelope fa-2"></i> 
-                            <a href="#contact" id="contact-me" style="margin-left:5px;" class="text-primary">Contact Me</a>
+                         <img src="https://stamplay.com/images/Giuliano.jpg" class="img-responsive img-circle" style="float:left" width="50"/>
+                        <span class="text-primary" style="line-height: 3;margin-left: 10px;">Giuliano Iacobelli</span>
                         </div>
                     </div>
                 </div>
@@ -139,7 +169,11 @@
                         </span>
                         <h4 class="service-heading rewards"> Supporter </h4>
                         <p class="description-reward">Get 2 free starter plan month worth 38$ with all the essential features to start building your first app</p>
-                        <stamplay stripe-customer-payment data-key="pk_test_pJmA0kOREkC3HnHyozSst2r0" data-amount="500" data-currency="USD" data-template-url="5dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData5"></stamplay>
+                        <a ng-click="openModal('5')" class="btn btn-xl" style="margin-top: 15px;" ng-show="user.dt_create">Pledge 5$</a>
+                        <a  class="btn btn-xl" style="margin-top: 15px;" ng-hide="user.dt_create" ng-click="openModal('5$')" >Pledge 5$
+                            <p class="login"> Please login</p>
+                        </a>
+
                     </div>
                 </div>
                 <div class="col-md-3 " >
@@ -150,7 +184,11 @@
                         </span>
                         <h4 class="service-heading rewards"> Lover</h4>
                         <p class="description-reward">Get 2 free plus plan month worth 90$ to kick-off your next great app with almost no limit</p>
-                        <stamplay stripe-customer-payment data-key="pk_test_pJmA0kOREkC3HnHyozSst2r0" data-amount="1500" data-currency="USD" data-template-url="15dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData15"></stamplay>
+                        <a ng-click="openModal('15')" class="btn btn-xl" style="margin-top: 15px;" ng-show="user.dt_create">Pledge 15$</a>
+                        <a  class="btn btn-xl" style="margin-top: 15px;" ng-hide="user.dt_create" disabled>Pledge 15$
+                            <p class="login"> Please login</p>
+                        </a>
+
                         </div>
                 </div>
                 <div class="col-md-3 " >
@@ -161,8 +199,11 @@
                         </span>
                         <h4 class="service-heading rewards" > Fan</h4>
                         <p class="description-reward">Get 6 free plus plan month worth 270$ to bootstrap something that wants to last</p>
-                        <stamplay stripe-customer-payment data-key="pk_test_pJmA0kOREkC3HnHyozSst2r0" data-amount="3000" data-currency="USD" data-template-url="30dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData30"></stamplay>
-
+                        <a ng-click="openModal('30')" class="btn btn-xl" style="margin-top: 15px;" ng-show="user.dt_create">Pledge 30$</a>
+                        <a  class="btn btn-xl" style="margin-top: 15px;" ng-hide="user.dt_create" disabled>Pledge 30$
+                            <p class="login"> Please login</p>
+                        </a>
+                       
                     </div>
                 </div>
                 <div class="col-md-3 " >
@@ -173,7 +214,11 @@
                         </span>
                         <h4 class="service-heading rewards"> Fanatic </h4>
                         <p class="description-reward"> We'll just love you giving back 12 free plus plan month!</p>
-                        <stamplay stripe-customer-payment data-key="pk_test_pJmA0kOREkC3HnHyozSst2r0" data-amount="5000" data-currency="USD" data-template-url="50dollar.html" data-image-url="https://editor.stamplay.com/img/logo-home.png" data-success-event="refreshData50"></stamplay>
+                        <a ng-click="openModal('50')" class="btn btn-xl" style="margin-top: 15px;" ng-show="user.dt_create">Pledge 50$</a>
+                        <a  class="btn btn-xl" style="margin-top: 15px;" ng-hide="user.dt_create" disabled>Pledge 50$
+                            <p class="login"> Please login</p>
+                        </a>
+
                     </div>
                 </div>
             </div>
@@ -225,7 +270,8 @@
                             <div class="timeline-image" >
                                 <h4 style="color:white">Be Part
                                     <br>Of Our
-                                    <br>Story!</h4>
+                                    <br>Story!
+                                </h4>
                             </div>
                         </li>
                     </ul>
@@ -297,24 +343,6 @@
         </div>
     </section>
 
-    <section id="contact" style="padding-top: 100px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Contact Us</h2>
-                    <h3 class="section-subheading text-muted">Don't be shy :)</h3>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <stamplay form-submit data-form-id='contact' data-template-url='form-submit.html'></stamplay> 
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   
     <footer>
         <div class="container">
             <div class="row">
@@ -341,21 +369,76 @@
         </div>
     </footer>
 
-      <!-- Bootstrap core JavaScript
-      ================================================== -->
-      <!-- Placed at the end of the document so the pages load faster -->
-   <script>
-      var _APP_ID = "kickstarter";
-      var _ASSETS_URL = "."
-    </script>
-    <script src="./js/stamplay-ng.min.js"></script> 
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Payment Modal</h4>
+          </div>
+          <div class="modal-body">
+
+            <span class="bg-warning" > 
+                This demo will not actually charge you as the Stripe component is in test mode. 
+            </span>
+
+            <div class="form-group col-md-12" style="margin-top:35px;">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-credit-card"></i>
+                  </span>
+                  <input ng-model="number" placeholder="Card Number" payments-format="card" payments-validate="card" name="card" class="form-control" ng-init="number='4111111111111111'" value="4111111111111111" disabled>
+                </div> 
+             
+            </div>
+
+            <div class="form-group col-md-7">     
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-calendar"></i>
+                  </span>            
+                  <input ng-model="expiry" payments-format="expiry" payments-validate="expiry" name="expiry" class="form-control" placeholder="expire MM/YY" ng-init="expiry='12/2030'" value="12/2030" disabled>
+                </div>
+            </div>
+
+            <div class="form-group col-md-5">
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                  <input ng-model="cvc" placeholder="CVC" payments-format="cvc" payments-validate="cvc" name="cvc" class="form-control" ng-init="cvc='123'" value="123" disabled>
+                </div>     
+            </div>
+
+          </div>
+          
+          <div class="modal-footer">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    <button type="button" id="pay-button" class="btn btn-primary " ng-click="pay(currentAmount)"> Pay {{currentAmount}} $</button>
+                </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+</body>
+
     <script src="./js/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script> Stripe.setPublishableKey('pk_test_02nzkzAzw9hfzzeAcVFGBkai');</script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="./js/classie.js"></script>
-    <script src="./js/cbpAnimatedHeader.js"></script>
-    <script src="./js/agency.js"></script>
-    <script src="./js/project-data.js"></script>
+    <script src="./js/external.js"></script>
+    <script src="./js/angular.min.js"></script>
+    <script src="https://drrjhlchpvi7e.cloudfront.net/libs/stamplay-js-sdk/1.1.0/stamplay.min.js"></script>
+    <script src="./js/angular-stamplay.js"></script>
+    <script> var app = angular.module('app', ['ngStamplay']);</script>
+    <script src="./js/app.js"></script>
 
-  </body>
 </html>
