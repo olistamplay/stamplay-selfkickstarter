@@ -46,7 +46,7 @@ After creating a new app on [Stamplay](https://editor.stamplay.com) let's start 
 Lets see one-by-one how they are configured:
 
 ### User
-the app leverages Facebook Login to provide an easy login to its users. In order to activate yours you need to get an APPID and APPSecret on [Facebook Developer's portal](https://developers.facebook.com/apps), create an app and add Stamplay.com as authorized domain as you can see in the pic below. 
+the app leverages Facebook Login to provide an easy login to its users. In order to activate yours you need to get an APPID and APPSecret on [Facebook Developer's portal](https://developers.facebook.com/apps), create an app and add Stamplayapp.com as authorized domain as you can see in the pic below. 
 
 ![Facebook app settings](https://blog.stamplay.com/wp-content/uploads/2014/07/Schermata-2014-07-22-alle-17.43.24.png "Facebook app settings")
 
